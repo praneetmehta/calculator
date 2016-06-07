@@ -29,15 +29,13 @@ function clearAll() {
     primaryNumber.length = 0;
     answer = 0;
     numCount = 0;
+    ansOnce = false;
 }
 
 function addToArray(num) {
     primaryNumber.push(num);
     document.getElementById('line1').innerHTML = primaryNumber.join('');
-    var ran1 = Math.ceil(Math.random() * 256);
-    var ran2 = Math.ceil(Math.random() * 256);
-    var ran3 = Math.ceil(Math.random() * 256);
-    document.getElementById(this).style.backgroundColor = 'rgb(' + ran1 + ',' + ran2 + ',' + ran3 + ')';
+
 }
 
 function addOperator(op) {
@@ -87,4 +85,14 @@ function fetchAnswer() {
     number.push(answer);
     numCount = 1;
     ansOnce = true;
+}
+
+function callMem() {
+    number[1] = mem;
+    document.getElementById('line1').innerHTML = number[1];
+}
+
+function addMem() {
+    mem = answer;
+    document.getElementById('memoryInfo').innerHTML = 'Number stored in memory = ' + mem;
 }
