@@ -39,22 +39,26 @@ function addToArray(num) {
 }
 
 function addOperator(op) {
-    if (ansOnce) {
-        document.getElementById('line2').innerHTML = answer;
-        document.getElementById('line1').innerHTML = '0';
-        document.getElementById('lineOp').innerHTML = op;
-        oldOp = op;
+    if (primaryNumber.length == 0) {
+
     } else {
-        number.push(primaryNumber.join(''));
-        if (numCount == 1) {
-            solve();
+        if (ansOnce) {
+            document.getElementById('line2').innerHTML = answer;
+            document.getElementById('line1').innerHTML = '0';
+            document.getElementById('lineOp').innerHTML = op;
+            oldOp = op;
+        } else {
+            number.push(primaryNumber.join(''));
+            if (numCount == 1) {
+                solve();
+            }
+            primaryNumber.length = 0;
+            document.getElementById('line1').innerHTML = '0';
+            document.getElementById('line2').innerHTML = number[numCount];
+            document.getElementById('lineOp').innerHTML = op;
+            oldOp = op;
+            numCount++;
         }
-        primaryNumber.length = 0;
-        document.getElementById('line1').innerHTML = '0';
-        document.getElementById('line2').innerHTML = number[numCount];
-        document.getElementById('lineOp').innerHTML = op;
-        oldOp = op;
-        numCount++;
     }
 }
 
@@ -89,7 +93,12 @@ function fetchAnswer() {
 
 function callMem() {
     number[1] = mem;
-    document.getElementById('line1').innerHTML = number[1];
+    if (ansOnce) {
+        document.getElementById('line1').innerHTML = number[1];
+    } else {
+        document.getElementById('line2').innerHTML = number[1];
+        numCount = 1;
+    }
 }
 
 function addMem() {
