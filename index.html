@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron:500' rel='stylesheet' type='text/css'>
+</head>
+
+<body style="text-align:center; font-family:'Raleway">
+    <h1 id="header" style="font-family:Raleway; font-size:50px">Js Calculator</h1>
+    <h4 style="margin-left:150px">-By Praneet Mehta</h4>
+    <div id="contain" class="container">
+        <div id="display" style="text-align:right">
+            <h2 id="line2">Line2</h2>
+            <h2 id="lineOp">Operator Line</h2>
+            <h2 id="line1" style="margin-top:0px">Line 1</h2>
+            <h1 id="ansLine">Answer Line</h1>
+
+        </div>
+        <div id="operatorBtns">
+            <button type="button" class="btn btn-lg operator" onclick="addOperator('+')">+</button>
+            <button type="button" class="btn btn-lg operator" onclick="addOperator('-')">-</button>
+            <button type="button" class="btn btn-lg operator" onclick="addOperator('x')">x</button>
+            <button type="button" class="btn btn-lg operator" onclick="addOperator('/')">/</button>
+        </div>
+        <div id="numKeys">
+            <div id="row1">
+                <button type="button" class="btn btn-lg num" onclick='addToArray(1)'>1</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(2)'>2</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(3)'>3</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(4)'>4</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(5)'>5</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(6)'>6</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(7)'>7</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(8)'>8</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(9)'>9</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(.)'>.</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(0)'>0</button>
+                <button type="button" class="btn btn-lg num" onclick='addToArray(00)'>00</button>
+            </div>
+        </div>
+        <div id="func">
+            <div>
+                <button type="button" class="btn btn-lg func" onclick="clearAll()">C</button>
+                <button type="button" class="btn btn-lg func" onclick="addMem">M+</button>
+                <button type="button" class="btn btn-lg func" onclick="callMem()">MC</button>
+                <button type="button" class="btn btn-lg func" style="background:#4caf50" onclick="fetchAnswer()">=</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
