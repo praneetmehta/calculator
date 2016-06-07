@@ -1,10 +1,15 @@
+@font-face {
+    font-family: Calcy;
+    src: url('digital-7.ttf');
+}
+
 #contain {
     width: 400px;
     height: 600px;
     border-radius: 2%;
     justify-content: center;
     box-shadow: 20px 20px 20px #696969;
-    background: orange;
+    background: #ffd27f;
 }
 
 #display {
@@ -12,7 +17,7 @@
     margin: 13px;
     border-radius: 3%;
     background: white;
-    font-family: 'Orbitron';
+    font-family: 'Calcy';
 }
 
 #operatorBtns {
@@ -71,8 +76,4 @@
 .operator:active {
     transform: translateY(3px);
     box-shadow: 0px 2px 0px #696969;
-}
-
-#lineOp {
-    margin-right: 25px;
 }
