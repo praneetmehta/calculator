@@ -7,16 +7,16 @@ var ansOnce = false;
 
 function solve() {
     if (oldOp == '+') {
-        answer += +number[0] + +number[1];
+        answer = +number[0] + +number[1];
     }
     if (oldOp == 'x') {
-        answer += number[0] * number[1];
+        answer = number[0] * number[1];
     }
     if (oldOp == '/') {
-        answer += number[0] / number[1];
+        answer = number[0] / number[1];
     }
     if (oldOp == '-') {
-        answer += number[0] - number[1];
+        answer = number[0] - number[1];
     }
 }
 

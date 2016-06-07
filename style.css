@@ -16,8 +16,9 @@
     height: 200px;
     margin: 13px;
     border-radius: 3%;
-    background: white;
+    background: #bccd95;
     font-family: 'Calcy';
+    box-shadow: 0 0 10px #768067;
 }
 
 #operatorBtns {
