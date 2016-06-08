@@ -63,7 +63,7 @@ function addOperator(op) {
             document.getElementById('lineOp').innerHTML = op;
             oldOp = op;
             numCount++;
-            document.getElementById('memoryInfo').innerHTML = number[1];
+
         }
     }
 }
