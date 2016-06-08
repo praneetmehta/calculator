@@ -44,12 +44,13 @@ function addToArray(num) {
 
 function addOperator(op) {
     if (primaryNumber.length == 0 && ansOnce == false) {} else {
-        if (ansOnce && numCount < 2) {
+        if (ansOnce && numCount < 1) {
             document.getElementById('line2').innerHTML = answer;
             document.getElementById('line1').innerHTML = '0';
             document.getElementById('lineOp').innerHTML = op;
             oldOp = op;
         } else {
+            ansOnce = false;
             number.push(primaryNumber.join(''));
             if (numCount == 1) {
                 solve();
