@@ -8,22 +8,26 @@ var ansOnce = false;
 function solve() {
     if (oldOp == '+') {
         answer = +number[0] + +number[1];
+        number[0] = answer;
     }
     if (oldOp == 'x') {
         answer = number[0] * number[1];
+        number[0] = answer;
     }
     if (oldOp == '/') {
         answer = number[0] / number[1];
+        number[0] = answer;
     }
     if (oldOp == '-') {
         answer = number[0] - number[1];
+        number[0] = answer;
     }
 }
 
 function clearAll() {
     document.getElementById('line1').innerHTML = '0';
     document.getElementById('line2').innerHTML = '0';
-    document.getElementById('lineOp').innerHTML = 'operator';
+    document.getElementById('lineOp').innerHTML = '0';
     document.getElementById('ansLine').innerHTML = '0';
     number.length = 0;
     primaryNumber.length = 0;
@@ -39,10 +43,8 @@ function addToArray(num) {
 }
 
 function addOperator(op) {
-    if (primaryNumber.length == 0) {
-
-    } else {
-        if (ansOnce) {
+    if (primaryNumber.length == 0 && ansOnce == false) {} else {
+        if (ansOnce && numCount < 2) {
             document.getElementById('line2').innerHTML = answer;
             document.getElementById('line1').innerHTML = '0';
             document.getElementById('lineOp').innerHTML = op;
@@ -51,13 +53,17 @@ function addOperator(op) {
             number.push(primaryNumber.join(''));
             if (numCount == 1) {
                 solve();
+            } else if (numCount > 1) {
+                number[1] = primaryNumber.join('');
+                solve();
             }
             primaryNumber.length = 0;
             document.getElementById('line1').innerHTML = '0';
-            document.getElementById('line2').innerHTML = number[numCount];
+            document.getElementById('line2').innerHTML = number[0];
             document.getElementById('lineOp').innerHTML = op;
             oldOp = op;
             numCount++;
+            document.getElementById('memoryInfo').innerHTML = number[1];
         }
     }
 }
@@ -78,9 +84,12 @@ function fetchAnswer() {
         if (oldOp == '-') {
             answer = number[0] - number[1];
         }
-    } else {
+    } else if (numCount < 2) {
         number.push(primaryNumber.join(''));
         numCount++;
+        solve();
+    } else if (numCount > 1) {
+        number[1] = primaryNumber.join('');
         solve();
     }
     document.getElementById('ansLine').innerHTML = answer;
